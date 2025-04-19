@@ -1,5 +1,8 @@
 app = "n8n-omd"
 
+[build]
+image = "n8nio/n8n:1.42.2"
+
 [env]
   DB_TYPE = "postgresdb"
   GENERIC_TIMEZONE = "America/Denver"
