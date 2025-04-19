@@ -2,19 +2,16 @@ app = "n8n-omd"
 
 [env]
   DB_TYPE = "postgresdb"
-  DB_POSTGRESDB_PORT = "5432"
-  DB_POSTGRESDB_USER = "postgres"
   GENERIC_TIMEZONE = "America/Denver"
   TZ = "America/Denver"
   N8N_BASIC_AUTH_ACTIVE = "true"
   N8N_BASIC_AUTH_USER = "admin"
   N8N_BASIC_AUTH_PASSWORD = "securepass"
-  N8N_ENCRYPTION_KEY = "SomeRandomAndSecureEncryptionKeyOfYourChoice"
+  TINI_SUBREAPER = "true"
   N8N_LOG_LEVEL = "info"
   N8N_DIAGNOSTICS_ENABLED = "false"
   N8N_HIRING_BANNER_ENABLED = "false"
   N8N_USER_MANAGEMENT_DISABLED = "false"
-  TINI_SUBREAPER = "true"
 
 [http_service]
   internal_port = 5678
@@ -27,7 +24,7 @@ app = "n8n-omd"
     hard_limit = 250
     soft_limit = 200
 
-# Optional volume mount if you created persistent storage:
+# Optional persistent storage:
 # [mounts]
 #   source = "n8n_data"
 #   destination = "/home/node/.n8n"
