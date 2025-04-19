@@ -1,20 +1,17 @@
-# fly.toml app configuration file generated for iloven8n on 2023-05-25T18:21:54+02:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = "iloven8n"
+app = "n8n-omd"
 
 [env]
+  DB_TYPE = "postgresdb"
   DB_POSTGRESDB_PORT = "5432"
   DB_POSTGRESDB_USER = "postgres"
-  DB_TYPE = "postgresdb"
-  GENERIC_TIMEZONE = "Europe/Paris" # Change the Timezone here and on the next line
-  TZ = "Europe/Paris"
-  N8N_BASIC_AUTH_ACTIVE = "false"
-  N8N_LOG_LEVEL= "info"
-  N8N_DIAGNOSTICS_ENABLED = "false"
+  GENERIC_TIMEZONE = "America/Denver"
+  TZ = "America/Denver"
+  N8N_BASIC_AUTH_ACTIVE = "true"
+  N8N_BASIC_AUTH_USER = "admin"
+  N8N_BASIC_AUTH_PASSWORD = "securepass"
   N8N_ENCRYPTION_KEY = "SomeRandomAndSecureEncryptionKeyOfYourChoice"
+  N8N_LOG_LEVEL = "info"
+  N8N_DIAGNOSTICS_ENABLED = "false"
   N8N_HIRING_BANNER_ENABLED = "false"
   N8N_USER_MANAGEMENT_DISABLED = "false"
   TINI_SUBREAPER = "true"
@@ -24,7 +21,13 @@ app = "iloven8n"
   force_https = true
   auto_stop_machines = false
   auto_start_machines = true
+
   [http_service.concurrency]
     type = "requests"
     hard_limit = 250
     soft_limit = 200
+
+# Optional volume mount if you created persistent storage:
+# [mounts]
+#   source = "n8n_data"
+#   destination = "/home/node/.n8n"
